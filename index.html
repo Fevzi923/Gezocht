@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="nl">
+<!DOCTYPE html>
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,28 +13,25 @@
       --muted: #c9c9c9;
       --gold: #d4af37;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: linear-gradient(180deg, #0d0d0d, #1b1b1b);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 24px;
     }
-    .poster {
+
+    .wrap {
       width: 100%;
-      max-width: 760px;
-      background: linear-gradient(180deg, #252525, #171717);
-      border: 4px solid var(--accent);
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
-      overflow: hidden;
+      max-width: 1300px;
+      margin: 0 auto;
     }
-    .topbar {
+
+    .headline {
       background: var(--accent);
       padding: 18px 24px;
       text-align: center;
@@ -41,157 +39,287 @@
       font-size: clamp(28px, 5vw, 42px);
       letter-spacing: 2px;
       text-transform: uppercase;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
     }
-    .content {
-      padding: 28px;
+
+    .subnote {
+      background: #202020;
+      border-left: 4px solid var(--gold);
+      border-right: 4px solid var(--gold);
+      padding: 14px 20px;
+      color: #f0e0a2;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 24px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      background: linear-gradient(180deg, #252525, #171717);
+      border: 4px solid var(--accent);
+      border-top: none;
+      border-radius: 0 0 20px 20px;
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
     }
+
+    .poster {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .poster-top {
+      background: rgba(198,40,40,.12);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 12px 16px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .content {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+    }
+
     .photo {
       background: #2e2e2e;
       border-radius: 16px;
-      min-height: 320px;
+      min-height: 230px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #aaa;
       border: 2px dashed #555;
       text-align: center;
-      padding: 20px;
+      padding: 14px;
+      overflow: hidden;
     }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
     .badge {
       display: inline-block;
       background: rgba(212,175,55,.12);
       color: var(--gold);
       border: 1px solid rgba(212,175,55,.4);
-      padding: 8px 12px;
+      padding: 7px 11px;
       border-radius: 999px;
-      font-size: 13px;
-      margin-bottom: 12px;
+      font-size: 12px;
+      margin-bottom: 10px;
     }
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(26px, 4vw, 38px);
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(22px, 3vw, 34px);
     }
+
     .subtitle {
       color: var(--muted);
-      margin-bottom: 20px;
-      line-height: 1.6;
+      margin-bottom: 16px;
+      line-height: 1.5;
     }
+
     .facts {
       display: grid;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 10px;
+      margin-bottom: 14px;
     }
+
     .fact {
       background: rgba(255,255,255,.04);
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,.06);
     }
+
     .label {
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #9e9e9e;
       margin-bottom: 6px;
     }
+
     .value {
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 700;
     }
+
     .reward {
       background: linear-gradient(135deg, #7f1d1d, #c62828);
-      padding: 18px;
-      border-radius: 16px;
-      font-size: 20px;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 18px;
       font-weight: 800;
       text-align: center;
-      margin-bottom: 20px;
     }
+
     .footer {
-      padding: 18px 24px 26px;
+      margin-top: 16px;
       color: #bdbdbd;
       font-size: 14px;
       line-height: 1.6;
-      border-top: 1px solid rgba(255,255,255,.08);
+      text-align: center;
     }
+
     .prank-note {
-      margin-top: 14px;
+      margin-top: 12px;
       padding: 12px 14px;
       border-radius: 12px;
       background: rgba(255,255,255,.05);
       border: 1px solid rgba(255,255,255,.08);
       color: #e7e7e7;
     }
-    @media (max-width: 700px) {
+
+    @media (max-width: 980px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
       .content {
         grid-template-columns: 1fr;
       }
+
       .photo {
-        min-height: 240px;
+        min-height: 220px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="poster">
-    <div class="topbar">Gezocht</div>
-    <section class="content">
-      <div class="photo" id="photoBox">
-        Hier kan een foto worden geplaatst
-      </div>
-      <div>
-        <div class="badge">Volledige grap / parodiepagina</div>
-        <h1 id="personName">[Naam Hier]</h1>
-        <div class="subtitle" id="subtitleText">
-          Deze persoon wordt beschuldigd van overdreven charisma, mensen aan het lachen maken en alle aandacht stelen.
-        </div><div class="facts">
-      <div class="fact">
-        <div class="label">Laatst gezien</div>
-        <div class="value" id="lastSeen">Bij het koffieapparaat</div>
-      </div>
-      <div class="fact">
-        <div class="label">Beschuldigingen</div>
-        <div class="value" id="charges">Mensen laten lachen, snacks opmaken, te veel charisma</div>
-      </div>
-      <div class="fact">
-        <div class="label">Herkenbaar aan</div>
-        <div class="value" id="feature">Verandert direct de sfeer van elke ruimte</div>
+  <main class="wrap">
+    <div class="headline">Gezocht</div>
+    <div class="subnote">Volledige grap / parodiepagina — geen echte opsporingsmelding</div>
+
+    <section class="grid" id="grid"></section>
+
+    <div class="footer">
+      Meldpunt: stuur een screenshot naar de dichtstbijzijnde vriendengroep.
+      <div class="prank-note">
+        Let op: deze pagina is geen echte opsporingsmelding. Dit is volledig een parodie en alleen bedoeld voor entertainment.
       </div>
     </div>
+  </main>
 
-    <div class="reward" id="rewardBox">Beloning: 1 grote thee + 1 dessert</div>
-  </div>
-</section>
-<div class="footer">
-  Meldpunt: stuur een screenshot naar de dichtstbijzijnde vriendengroep.
-  <div class="prank-note">
-    Let op: deze pagina is geen echte opsporingsmelding. Dit is volledig een parodie en alleen bedoeld voor entertainment.
-  </div>
-</div>
-
-  </main> <script>
+  <script>
     const params = new URLSearchParams(window.location.search);
 
-    const setText = (id, key, fallback) => {
-      const el = document.getElementById(id);
-      const val = params.get(key);
-      el.textContent = val && val.trim() ? val : fallback;
-    };
+    const defaults = [
+      {
+        naam: "Persoon 1",
+        beschrijving: "Deze persoon wordt beschuldigd van overdreven charisma, mensen aan het lachen maken en alle aandacht stelen.",
+        laatst: "Bij het koffieapparaat",
+        beschuldigingen: "Mensen laten lachen, snacks opmaken, te veel charisma",
+        kenmerk: "Verandert direct de sfeer van elke ruimte",
+        beloning: "Beloning: 1 grote thee + 1 dessert",
+        foto: ""
+      },
+      {
+        naam: "Persoon 2",
+        beschrijving: "Deze persoon wordt verdacht van het te gezellig maken van elke plek waar hij of zij verschijnt.",
+        laatst: "In de kantine",
+        beschuldigingen: "Te grappig zijn, vrienden afleiden, sfeer verhogen",
+        kenmerk: "Altijd opduiken op het juiste moment",
+        beloning: "Beloning: 1 cola + 1 snack",
+        foto: ""
+      },
+      {
+        naam: "Persoon 3",
+        beschrijving: "Deze persoon staat bekend om extreme vriendelijkheid en verdachte hoeveelheden energie.",
+        laatst: "Bij de ingang",
+        beschuldigingen: "Te vriendelijk zijn, aandacht trekken, rare grappen maken",
+        kenmerk: "Komt binnen en iedereen kijkt meteen",
+        beloning: "Beloning: 1 koffie + 1 donut",
+        foto: ""
+      },
+      {
+        naam: "Persoon 4",
+        beschrijving: "Deze persoon wordt gezocht wegens het stelen van de show in groepssituaties.",
+        laatst: "Op de bank",
+        beschuldigingen: "Overdreven stijl, charisma-overbelasting, snackdiefstal",
+        kenmerk: "Onmogelijk om te negeren",
+        beloning: "Beloning: 1 energiedrank + 1 toetje",
+        foto: ""
+      }
+    ];
 
-    setText('personName', 'naam', '[Naam Hier]');
-    setText('subtitleText', 'beschrijving', 'Deze persoon wordt beschuldigd van overdreven charisma, mensen aan het lachen maken en alle aandacht stelen.');
-    setText('lastSeen', 'laatst', 'Bij het koffieapparaat');
-    setText('charges', 'beschuldigingen', 'Mensen laten lachen, snacks opmaken, te veel charisma');
-    setText('feature', 'kenmerk', 'Verandert direct de sfeer van elke ruimte');
-    setText('rewardBox', 'beloning', 'Beloning: 1 grote thee + 1 dessert');
-
-    const photo = params.get('foto');
-    if (photo) {
-      const box = document.getElementById('photoBox');
-      box.innerHTML = `<img src="${photo}" alt="Foto" style="width:100%;height:100%;object-fit:cover;border-radius:14px;" />`;
+    function getValue(base, index, fallback) {
+      const value = params.get(base + index);
+      return value && value.trim() ? value : fallback;
     }
-  </script></body>
+
+    function makePoster(person, index) {
+      const article = document.createElement("article");
+      article.className = "poster";
+
+      article.innerHTML = `
+        <div class="poster-top">Dossier ${index}</div>
+        <div class="content">
+          <div class="photo">
+            ${person.foto ? `<img src="${person.foto}" alt="Foto ${index}" />` : "Hier kan een foto worden geplaatst"}
+          </div>
+          <div>
+            <div class="badge">Parodieprofiel</div>
+            <h2>${person.naam}</h2>
+            <div class="subtitle">${person.beschrijving}</div>
+
+            <div class="facts">
+              <div class="fact">
+                <div class="label">Laatst gezien</div>
+                <div class="value">${person.laatst}</div>
+              </div>
+
+              <div class="fact">
+                <div class="label">Beschuldigingen</div>
+                <div class="value">${person.beschuldigingen}</div>
+              </div>
+
+              <div class="fact">
+                <div class="label">Herkenbaar aan</div>
+                <div class="value">${person.kenmerk}</div>
+              </div>
+            </div>
+
+            <div class="reward">${person.beloning}</div>
+          </div>
+        </div>
+      `;
+
+      return article;
+    }
+
+    const people = defaults.map((item, i) => {
+      const n = i + 1;
+      return {
+        naam: getValue("naam", n, item.naam),
+        beschrijving: getValue("beschrijving", n, item.beschrijving),
+        laatst: getValue("laatst", n, item.laatst),
+        beschuldigingen: getValue("beschuldigingen", n, item.beschuldigingen),
+        kenmerk: getValue("kenmerk", n, item.kenmerk),
+        beloning: getValue("beloning", n, item.beloning),
+        foto: getValue("foto", n, item.foto)
+      };
+    });
+
+    const grid = document.getElementById("grid");
+    people.forEach((person, index) => {
+      grid.appendChild(makePoster(person, index + 1));
+    });
+  </script>
+</body>
 </html>
