@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gezocht – Grappagina</title>
+  <style>
+    :root {
+      --bg: #111;
+      --card: #1c1c1c;
+      --accent: #c62828;
+      --text: #f5f5f5;
+      --muted: #c9c9c9;
+      --gold: #d4af37;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0d0d0d, #1b1b1b);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .poster {
+      width: 100%;
+      max-width: 760px;
+      background: linear-gradient(180deg, #252525, #171717);
+      border: 4px solid var(--accent);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      overflow: hidden;
+    }
+    .topbar {
+      background: var(--accent);
+      padding: 18px 24px;
+      text-align: center;
+      font-weight: 800;
+      font-size: clamp(28px, 5vw, 42px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .content {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+    }
+    .photo {
+      background: #2e2e2e;
+      border-radius: 16px;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      border: 2px dashed #555;
+      text-align: center;
+      padding: 20px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(212,175,55,.12);
+      color: var(--gold);
+      border: 1px solid rgba(212,175,55,.4);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(26px, 4vw, 38px);
+    }
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .facts {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .fact {
+      background: rgba(255,255,255,.04);
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9e9e9e;
+      margin-bottom: 6px;
+    }
+    .value {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .reward {
+      background: linear-gradient(135deg, #7f1d1d, #c62828);
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .footer {
+      padding: 18px 24px 26px;
+      color: #bdbdbd;
+      font-size: 14px;
+      line-height: 1.6;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .prank-note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #e7e7e7;
+    }
+    @media (max-width: 700px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+      .photo {
+        min-height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <div class="topbar">Gezocht</div>
+    <section class="content">
+      <div class="photo" id="photoBox">
+        Hier kan een foto worden geplaatst
+      </div>
+      <div>
+        <div class="badge">Volledige grap / parodiepagina</div>
+        <h1 id="personName">[Naam Hier]</h1>
+        <div class="subtitle" id="subtitleText">
+          Deze persoon wordt beschuldigd van overdreven charisma, mensen aan het lachen maken en alle aandacht stelen.
+        </div>
+
+        <div class="facts">
+          <div class="fact">
+            <div class="label">Laatst gezien</div>
+            <div class="value" id="lastSeen">Bij het koffieapparaat</div>
+          </div>
+          <div class="fact">
+            <div class="label">Beschuldigingen</div>
+            <div class="value" id="charges">Mensen laten lachen, snacks opmaken, te veel charisma</div>
+          </div>
+          <div class="fact">
+            <div class="label">Herkenbaar aan</div>
+            <div class="value" id="feature">Verandert direct de sfeer van elke ruimte</div>
+          </div>
+        </div>
+
+        <div class="reward" id="rewardBox">Beloning: 1 grote thee + 1 dessert</div>
+      </div>
+    </section>
+    <div class="footer">
+      Meldpunt: stuur een screenshot naar de dichtstbijzijnde vriendengroep.
+      <div class="prank-note">
+        Let op: deze pagina is geen echte opsporingsmelding. Dit is volledig een parodie en alleen bedoeld voor entertainment.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const setText = (id, key, fallback) => {
+      const el = document.getElementById(id);
+      const val = params.get(key);
+      el.textContent = val && val.trim() ? val : fallback;
+    };
+
+    setText('personName', 'naam', '[Naam Hier]');
+    setText('subtitleText', 'beschrijving', 'Deze persoon wordt beschuldigd van overdreven charisma, mensen aan het lachen maken en alle aandacht stelen.');
+    setText('lastSeen', 'laatst', 'Bij het koffieapparaat');
+    setText('charges', 'beschuldigingen', 'Mensen laten lachen, snacks opmaken, te veel charisma');
+    setText('feature', 'kenmerk', 'Verandert direct de sfeer van elke ruimte');
+    setText('rewardBox', 'beloning', 'Beloning: 1 grote thee + 1 dessert');
+
+    const photo = params.get('foto');
+    if (photo) {
+      const box = document.getElementById('photoBox');
+      box.innerHTML = `<img src="${photo}" alt="Foto" style="width:100%;height:100%;object-fit:cover;border-radius:14px;" />`;
+    }
+  </script>
+</body>
+</html>
