@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!DOCTYPE html><html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -148,35 +147,32 @@
         <h1 id="personName">[Naam Hier]</h1>
         <div class="subtitle" id="subtitleText">
           Deze persoon wordt beschuldigd van overdreven charisma, mensen aan het lachen maken en alle aandacht stelen.
-        </div>
-
-        <div class="facts">
-          <div class="fact">
-            <div class="label">Laatst gezien</div>
-            <div class="value" id="lastSeen">Bij het koffieapparaat</div>
-          </div>
-          <div class="fact">
-            <div class="label">Beschuldigingen</div>
-            <div class="value" id="charges">Mensen laten lachen, snacks opmaken, te veel charisma</div>
-          </div>
-          <div class="fact">
-            <div class="label">Herkenbaar aan</div>
-            <div class="value" id="feature">Verandert direct de sfeer van elke ruimte</div>
-          </div>
-        </div>
-
-        <div class="reward" id="rewardBox">Beloning: 1 grote thee + 1 dessert</div>
+        </div><div class="facts">
+      <div class="fact">
+        <div class="label">Laatst gezien</div>
+        <div class="value" id="lastSeen">Bij het koffieapparaat</div>
       </div>
-    </section>
-    <div class="footer">
-      Meldpunt: stuur een screenshot naar de dichtstbijzijnde vriendengroep.
-      <div class="prank-note">
-        Let op: deze pagina is geen echte opsporingsmelding. Dit is volledig een parodie en alleen bedoeld voor entertainment.
+      <div class="fact">
+        <div class="label">Beschuldigingen</div>
+        <div class="value" id="charges">Mensen laten lachen, snacks opmaken, te veel charisma</div>
+      </div>
+      <div class="fact">
+        <div class="label">Herkenbaar aan</div>
+        <div class="value" id="feature">Verandert direct de sfeer van elke ruimte</div>
       </div>
     </div>
-  </main>
 
-  <script>
+    <div class="reward" id="rewardBox">Beloning: 1 grote thee + 1 dessert</div>
+  </div>
+</section>
+<div class="footer">
+  Meldpunt: stuur een screenshot naar de dichtstbijzijnde vriendengroep.
+  <div class="prank-note">
+    Let op: deze pagina is geen echte opsporingsmelding. Dit is volledig een parodie en alleen bedoeld voor entertainment.
+  </div>
+</div>
+
+  </main> <script>
     const params = new URLSearchParams(window.location.search);
 
     const setText = (id, key, fallback) => {
@@ -197,6 +193,5 @@
       const box = document.getElementById('photoBox');
       box.innerHTML = `<img src="${photo}" alt="Foto" style="width:100%;height:100%;object-fit:cover;border-radius:14px;" />`;
     }
-  </script>
-</body>
+  </script></body>
 </html>
